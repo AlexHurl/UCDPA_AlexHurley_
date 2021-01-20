@@ -1,17 +1,19 @@
 # Importing necessary packages
 import pandas as pd
 
-#import datetime
+import datetime
 
-birddata = pd.read_csv("bird_tracking.csv")
+seagulldata = pd.read_csv("bird_tracking.csv")
 
 # Print name of each bird
-bird_names = pd.unique(birddata.bird_name)
-print(bird_names)
+seagull_names = pd.unique(seagulldata.bird_name)
+print(seagull_names)
 
 # Information about the CSV file
-birddata.info()
+seagulldata.info()
 
 # Import Matplotlib and Numpy
 import matplotlib.pyplot as plt
 import numpy as np
+
+ix = seagulldata
