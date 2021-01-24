@@ -45,7 +45,7 @@ bird_names = pd.unique(birddata.bird_name)
 # Grouping by name with mean speed
 # print(birddata.groupby("bird_name")["speed_2d"].mean())
 
-
+# Aggregating data (Multiple grouped summaries
 #bird_stats = birddata.groupby("bird_name")["speed_2d"].agg([np.mix, np.max, np.mean, np.median])
 #print(bird_stats)
 
@@ -53,3 +53,13 @@ bird_names = pd.unique(birddata.bird_name)
 # Grouping with agg
 # print(birddata.groupby("bird_name")["speed_2d"].agg([min, max]))
 
+#Indexing
+# birddata_2 = birddata.set_index("bird_name")
+# print(birddata_2)
+
+# print(birddata_2.loc[["Eric", "Sanne"]])
+
+# Multi Level index
+birddata_index = birddata.set_index("bird_name")
+birddata_sorted = ["Eric", "Sanne", "Nico"]
+print(birddata_index.loc[birddata_sorted])
