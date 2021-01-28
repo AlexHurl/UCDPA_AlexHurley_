@@ -86,7 +86,7 @@ for bird_name in bird_names:
     ix = birddata.bird_name == bird_name
     x, y = birddata.longitude[ix], birddata.latitude[ix]
     plt.plot(x, y, ".", label=bird_name)
-plt.xlabel("Longitude")
-plt.ylabel("Latitude")
+plt.xlabel("Birds Longitude")
+plt.ylabel("Birds Latitude")
 plt.legend(loc="lower right")
 plt.savefig("3Birds.pdf")
