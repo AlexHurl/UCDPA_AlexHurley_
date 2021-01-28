@@ -65,5 +65,15 @@ bird_names = pd.unique(birddata.bird_name)
 # print(birddata_index.loc[birddata_sorted])
 
 # subsetting by date
-Bird_Dates = birddata.set_index("date_time").sort_index()
-print(Bird_Dates)
+# Bird_Dates = birddata.set_index("date_time").sort_index()
+# print(Bird_Dates)
+# print(Bird_Dates.loc["2014-01-01 00:00:00+00":"2014-06-01 00:00:00+00"])
+
+# Plot latitude and longitude
+
+ER = birddata.bird_name == "Nico"
+
+x, y = birddata.longitude[ER], birddata.latitude[ER]
+
+plt.figure(figsize=(7,7))
+plt.plot(x,y,".")
