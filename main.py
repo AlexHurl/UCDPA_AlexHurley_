@@ -96,35 +96,50 @@ bird_names = pd.unique(birddata.bird_name)
 # # plt.xlabel("Birds Longitude")
 # # plt.ylabel("Birds Latitude")
 # # plt.legend(loc="lower right")
-# plt.savefig("3Birds.pdf")
+# plt.show()
 
 
 
 
-# DATE TIME CALCS
-#
-# datetime.datetime.today()
-#
-# time_1 = datetime.datetime.today()
-#
-# time_2 = datetime.datetime.today()
-#
-# time_2 - time_1
-#
-# time_2 = datetime.datetime.today()
-#
-# time_2 - time_1
-#
-# date_str = birddata.date_time[0]
-#
-# date_str[:-3]
-#
-# datetime.datetime.strptime(date_str[:-3], "%Y-%m-%d %H:%M:%S")
-#
-# timestamps = []
-# for k in range(len(birddata)):
-#     timestamps.append(datetime.datetime.strptime\
-#     (birddata.date_time.iloc[k][:-3], "%Y-%m-%d %H:%M:%S"))
-#
+# Calculating mean speed
+
+datetime.datetime.today()
+
+time_1 = datetime.datetime.today()
+
+time_2 = datetime.datetime.today()
+
+time_2 - time_1
+
+time_2 = datetime.datetime.today()
+
+time_2 - time_1
+
+date_str = birddata.date_time[0]
+
+date_str[:-3]
+
+datetime.datetime.strptime(date_str[:-3], "%Y-%m-%d %H:%M:%S")
+
+timestamps = []
+for k in range(len(birddata)):
+    timestamps.append(datetime.datetime.strptime\
+    (birddata.date_time.iloc[k][:-3], "%Y-%m-%d %H:%M:%S"))
+
+timestamps[0:3]
+
+birddata["timestamp"] = pd.Series(timestamps, index=birddata.index)
+
+birddata.head()
+
+birddata.timestamp[4] - birddata.timestamp[3]
+
+times = birddata.timestamp[birddata.bird_name == "Eric"]
+elapsed_time = [time - times[0] for time in times]
+
+
+
+
+
 
 
