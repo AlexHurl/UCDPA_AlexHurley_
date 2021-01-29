@@ -1,6 +1,7 @@
 # Importing necessary packages
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 import datetime
 birddata = pd.read_csv("bird_tracking.csv")
@@ -70,23 +71,60 @@ bird_names = pd.unique(birddata.bird_name)
 # print(Bird_Dates.loc["2014-01-01 00:00:00+00":"2014-06-01 00:00:00+00"])
 
 
+
+
+
+
+
 # Plot latitude and longitude
-ix = birddata.bird_name == "Nico"
+# # ix = birddata.bird_name == "Nico"
+#
+# # x, y = birddata.longitude[ix], birddata.latitude[ix]
+#
+# # plt.figure(figsize=(7,7))
+# # plt.plot(x,y,".")
+#
+# # bird_names = pd.unique(birddata.bird_name)
+#
+# # bird_names = pd.unique(birddata.bird_name)
+# # plt.figure(figsize=(7,7))
+#  # for bird_name in bird_names:
+#   #  ix = birddata.bird_name == bird_name
+#   #  x, y = birddata.longitude[ix], birddata.latitude[ix]
+#
+#  #   plt.plot(x, y, ".", label=bird_name)
+# # plt.xlabel("Birds Longitude")
+# # plt.ylabel("Birds Latitude")
+# # plt.legend(loc="lower right")
+# plt.savefig("3Birds.pdf")
 
-x, y = birddata.longitude[ix], birddata.latitude[ix]
 
-plt.figure(figsize=(7,7))
-plt.plot(x,y,".")
 
-bird_names = pd.unique(birddata.bird_name)
 
-bird_names = pd.unique(birddata.bird_name)
-plt.figure(figsize=(7,7))
-for bird_name in bird_names:
-    ix = birddata.bird_name == bird_name
-    x, y = birddata.longitude[ix], birddata.latitude[ix]
-    plt.plot(x, y, ".", label=bird_name)
-plt.xlabel("Birds Longitude")
-plt.ylabel("Birds Latitude")
-plt.legend(loc="lower right")
-plt.savefig("3Birds.pdf")
+# DATE TIME CALCS
+#
+# datetime.datetime.today()
+#
+# time_1 = datetime.datetime.today()
+#
+# time_2 = datetime.datetime.today()
+#
+# time_2 - time_1
+#
+# time_2 = datetime.datetime.today()
+#
+# time_2 - time_1
+#
+# date_str = birddata.date_time[0]
+#
+# date_str[:-3]
+#
+# datetime.datetime.strptime(date_str[:-3], "%Y-%m-%d %H:%M:%S")
+#
+# timestamps = []
+# for k in range(len(birddata)):
+#     timestamps.append(datetime.datetime.strptime\
+#     (birddata.date_time.iloc[k][:-3], "%Y-%m-%d %H:%M:%S"))
+#
+
+
