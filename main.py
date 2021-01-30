@@ -124,6 +124,7 @@ datetime.datetime.strptime(date_str[:-3], "%Y-%m-%d %H:%M:%S")
 timestamps = []
 for k in range(len(birddata)):
     timestamps.append(datetime.datetime.strptime\
+    # Slices the +00 from the time stamps
     (birddata.date_time.iloc[k][:-3], "%Y-%m-%d %H:%M:%S"))
 
 timestamps[0:3]
@@ -134,8 +135,29 @@ birddata.head()
 
 birddata.timestamp[4] - birddata.timestamp[3]
 
+#Make a list that captures the amount fo time since the start of the data collection
 times = birddata.timestamp[birddata.bird_name == "Eric"]
 elapsed_time = [time - times[0] for time in times]
+
+elapsed_time[1000]
+
+elapsed_time[1000] / datetime.timedelta(days=1)
+
+elapsed_time[1000] / datetime.timedelta(hours=1)
+
+
+
+
+#Length of entries
+print(len(elapsed_time))
+# date time today
+print(datetime.datetime.today())
+
+
+
+
+
+
 
 
 
