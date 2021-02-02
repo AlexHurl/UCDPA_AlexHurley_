@@ -12,59 +12,55 @@ bird_names = pd.unique(birddata.bird_name)
 
 # # Information about the CSV file
 # birddata.info()
-#
-# print(birddata.values)
-#
-# print(birddata.head())
-#
-# print(birddata.index)
-#
-# print(birddata.describe())
-#
-#
-# print(birddata.sort_values("speed_2d", ascending=False))
 
-# Eric_MaxSpeed = birddata[(birddata["bird_name"] == "Eric") | (birddata["speed_2d"] == max)]
-# print(Eric_MaxSpeed)
+# print(birddata.values)
+
+# print(birddata.head())
+
+# print(birddata.index)
+
+# Show the stats of the bird data
+# print(birddata.describe())
+
+# Highest and lowest altitude
+# print(birddata.sort_values("altitude", ascending=False))
 
 # Max and Min dates
 # print(birddata["date_time"].max())
 # print(birddata["date_time"].min())
 
-# Drop dupilcates of speed
-#Dupes_dropped = birddata.drop_duplicates(subset="speed_2d")
-#print(Dupes_dropped)
 
-
-# Value counts
+# Value counts of each bird
 # print(birddata["bird_name"].value_counts(sort=True))
 
 # Perecentages of data
 # print(birddata["bird_name"].value_counts(normalize=True))
 
 # # Mean speed
-# print(birddata[birddata["bird_name"] == "Eric"]["speed_2d"].mean())
-# print(birddata[birddata["bird_name"] == "Sanne"]["speed_2d"].mean())
-# print(birddata[birddata["bird_name"] == "Nico"]["speed_2d"].mean())
+#print(birddata[birddata["bird_name"] == "Eric"]["speed_2d"].mean())
+#print(birddata[birddata["bird_name"] == "Sanne"]["speed_2d"].mean())
+#print(birddata[birddata["bird_name"] == "Nico"]["speed_2d"].mean())
 
 # Grouping by name with mean speed
 # print(birddata.groupby("bird_name")["speed_2d"].mean())
 
-# Aggregating data (Multiple grouped summaries
-# bird_stats = birddata.groupby("bird_name")("speed_2d")agg([np.mix, np.max, np.mean, np.median])
-# print(bird_stats)
+# Aggregating data (Multiple grouped summaries altitude)
+#bird_stats = birddata.groupby("bird_name")["altitude"].agg([np.min, np.max, np.mean, np.median])
+#print(bird_stats)
 
-
+# Aggregating data (Multiple grouped summaries speed)
+#bird_stats2 = birddata.groupby("bird_name")["speed_2d"].agg([np.min, np.max, np.mean, np.median])
+#print(bird_stats2)
 
 
 # Grouping with agg stats on max and min for each bird
-# print(birddata.groupby("bird_name")["speed_2d"].agg([min, max]))
+#print(birddata.groupby("bird_name")["speed_2d"].agg([min, max]))
 #
-# print(birddata.groupby("bird_name")["altitude"].agg([min, max]))
+#print(birddata.groupby("bird_name")["altitude"].agg([min, max]))
 #
-# print(birddata.groupby("bird_name")["longitude"].agg([min, max]))
+#print(birddata.groupby("bird_name")["longitude"].agg([min, max]))
 #
-# print(birddata.groupby("bird_name")["latitude"].agg([min, max]))
+#print(birddata.groupby("bird_name")["latitude"].agg([min, max]))
 
 
 #Multi Level index .Here we can sort the bird data using  MLI so we can each bird from the persepective of how how long they were travelling for using the bird_name and date_time
@@ -76,11 +72,6 @@ bird_names = pd.unique(birddata.bird_name)
 # Bird_Dates = birddata.set_index("date_time").sort_index()
 # print(Bird_Dates)
 # print(Bird_Dates.loc["2014-01-01 00:00:00+00":"2014-06-01 00:00:00+00"])
-
-
-
-
-
 
 
 # Plot latitude and longitude of Eric Nice and Sanne
@@ -105,11 +96,18 @@ bird_names = pd.unique(birddata.bird_name)
 # plt.xlabel("Birds Longitude")
 # plt.ylabel("Birds Latitude")
 # plt.legend(loc="lower right")
+# plt.savefig("3birds.pdf")
+
+
+# seaborn to show frequency of speeds
+birddata["speed_2d"].plot.hist(bins=np.linspace(0, 30, 20), density=True)
+plt.xlabel("Speed 2D")
+plt.ylabel("Frequency")
+plt.savefig("frequency.pdf")
+
+# seaborn Countplot
+# sns.countplot(x="speed_2d", data=birddata)
 # plt.show()
-
-
-
-
 
 # Calculating mean speed
 
@@ -151,7 +149,7 @@ bird_names = pd.unique(birddata.bird_name)
 
 # seaborn to show frequency of speeds
 # birddata["speed_2d"].plot.hist()
-# plt.show()
+# plt.savefig("timeplot.pdf")
 
 
 #Make a list that captures the amount fo time since the start of the data collection
@@ -165,6 +163,10 @@ bird_names = pd.unique(birddata.bird_name)
 # elapsed_time[1000] / datetime.timedelta(hours=1)
 #
 #
+# Drop dupilcates of speed
+#Dupes_dropped = birddata.drop_duplicates(subset="speed_2d")
+#print(Dupes_dropped)
+
 #
 #
 # #Length of entries
@@ -196,8 +198,8 @@ bird_names = pd.unique(birddata.bird_name)
 # plt.plot(daily_mean_speed)
 # plt.xlabel("Day")
 # plt.ylabel("Mean speed (m/s)")
-# plt.show()
-#
+# plt.savefig("dms.pdf")
+
 
 
 
